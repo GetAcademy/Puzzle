@@ -28,16 +28,12 @@
 
             document.getElementById(toId).innerHTML += /*HTML*/`
                 <div class="jigsaw${color}" onclick="${onclick}" style="${style}">
-                    ${hasTop ? createSpan('t') : ''}
-                    ${hasRight ? createSpan('r') : ''}
-                    ${hasBottom ? createSpan('b') : ''}
-                    ${hasLeft ? createSpan('l') : ''}
+                    ${hasTop ? <span class="t"></span> : ''}
+                    ${hasRight ? <span class="r"></span> : ''}
+                    ${hasBottom ? <span class="b"></span> : ''}
+                    ${hasLeft ? <span class="l"></span> : ''}
                 </div>            
             `;
-        }
-
-        function createSpan(cssClass) {
-            return `<span class="${cssClass}"></span>`;
         }
 
         document.getElementById('exerciseText').innerHTML = /*HTML*/`            
@@ -62,7 +58,7 @@
                         <tt>addNormalPuzzlePieceToBoard()</tt>. (Ev. høyreklikk på denne brikken i nettleseren og velg inspiser. Da vil du 
                         se HTML-koden som ligger bak.)
                         Lag funksjonen <tt>addNormalPuzzlePieceToBoard()</tt>, slik at brikken legges til på brettet - øverst til venstre. 
-                        Fjern linjene under - de var bare ment for å vise et eksempel på hvordan man kan legge til brikker på brettet. 
+                        Kommenter ut linjene under - de var bare ment for å vise eksempler på hvordan man kan legge til ulike brikker i ulike posisjoner på brettet. 
                         <pre>addPuzzlePiece('board', true, true, true, true, '', 1, 0, 0);
                             addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);
                             addPuzzlePiece('board', true, false, true, true, '', 2, 0, 6);
