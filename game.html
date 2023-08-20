@@ -11,30 +11,12 @@
 <body>
     <div style="display: grid; grid-template-columns: 32em auto;">
         <div id="board"></div>
-        <div>
-            <h4>Oppgaver</h4>
-            <ol>
-                <li>Studer koden og prøv å forstå mest mulig av hva som foregår. CSS er ikke viktig, men på
-                    <tt>board</tt> brukes <tt>position: absolute</tt>
-                    for å kunne legge brikkene delvis oppå hverandre, og dette har vi ikke brukt i kurset før. 
-                    (Det er noe man bør unngå å bruke.)
-                </li>
-                <li>Hvis man trykker på den første brikken nederst til venstre på siden, kalles funksjonen <tt>addNormalPuzzlePieceToBoard()</tt>
-                    Lag denne funksjonen, slik at brikken legges til på brettet. 
-                </li>
-            </ol>
-        </div>
+        <div id="exerciseText" style="overflow-y: scroll;height: 32em"></div>
     </div>
     <hr />
     <div id="buttons"></div>
     </div>
-
     <script>
-        addPuzzlePiece('board', true, true, true, true, '', 1, 0, 0);
-        addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);
-        addPuzzlePiece('board', true, false, true, true, '', 2, 0, 6);
-
-
         addPuzzlePiece('buttons', true, true, true, true, 'addNormalPuzzlePieceToBoard()', 1);
         addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceWithoutTopToBoard()', 2);
         addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceWithoutRightToBoard()', 1);
@@ -57,6 +39,70 @@
         function createSpan(cssClass) {
             return `<span class="${cssClass}"></span>`;
         }
+
+        document.getElementById('exerciseText').innerHTML = /*HTML*/`            
+                <h2>Oppgaver</h2>
+                <ol>
+                    <li>Studer koden og prøv å forstå mest mulig av hva som foregår. CSS er ikke viktig, men på
+                        <tt>board</tt> brukes <tt>position: absolute</tt>
+                        for å kunne legge brikkene delvis oppå hverandre, og dette har vi ikke brukt i kurset før.
+                        (Det er noe man bør unngå å bruke.)<br/>&nbsp;
+                    </li>
+                    <li>Så skal vi i gang å endre på dette. Dere må på ingen måte forstå alt som foregår for å gjøre disse
+                        oppgavene. Sånn er det i bedrift også;
+                        du går inn og gjør endring på en liten del av koden uten å forstå alt rundt. 
+                        <b>Hvert team må vurdere hvor mye eller lite av denne oppgaven dere vil gjøre</b>. Alle bør gjøre litt, men 
+                        det kan være at de siste oppgavene er riktige å hoppe over for noen team.
+                        <br/>&nbsp;
+                        </li>
+                    <li>
+                        Hvis man trykker på den første brikken nederst til venstre på siden, kalles funksjonen
+                        <tt>addNormalPuzzlePieceToBoard()</tt>. (Ev. høyreklikk på denne brikken i nettleseren og velg inspiser. Da vil du 
+                        se HTML-koden som ligger bak.)
+                        Lag funksjonen <tt>addNormalPuzzlePieceToBoard()</tt>, slik at brikken legges til på brettet - øverst til venstre. 
+                        Fjern linjene under - de var bare ment for å vise et eksempel på hvordan man kan legge til brikker på brettet. 
+                        <pre>addPuzzlePiece('board', true, true, true, true, '', 1, 0, 0);
+                            addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);
+                            addPuzzlePiece('board', true, false, true, true, '', 2, 0, 6);
+                    </pre>
+                    </li>
+                    <li>
+                        Utvid funksjonen slik at første gang den kalles legges det til en brikke med 0 som argument for både <tt>leftPosition</tt> og <tt>topPosition</tt>.<br/>&nbsp;
+                    </li>
+                    <li>
+                        Utvid funksjonen slik at hvis man har kalt funksjonen fem ganger så bruker den 0 for <tt>leftPosition</tt> og bruker 6 mer enn forrige gang for <tt>topPosition</tt>.
+                        <br/>&nbsp;
+                    </li>
+                    <li>
+                        Sørg for at det annenhver gang blir farge 1 og annenhver gang farge 2.<br/>&nbsp;
+                    </li>
+                    <li>
+                        Lag ferdig knapperaden slik at det er knapper for alle disse alternativene: 
+                        <ul>
+                            <li>Normal brikke</li>
+                            <li>Slett toppkant - ellers normal</li>
+                            <li>Slett høyrekant - ellers normal</li>
+                            <li>Slett bunnkant - ellers normal</li>
+                            <li>Slett venstrekant - ellers normal</li>
+                            <li>Slett hjørne i topp og mot venstre - ellers normal</li>
+                            <li>Slett hjørne i topp og mot høyre - ellers normal</li>
+                            <li>Slett hjørne i bunn og mot venstre - ellers normal</li>
+                            <li>Slett hjørne i bunn og mot høyre - ellers normal</li>
+                        </ul>
+                        Sørg for at alle knappene virker og legger til riktig type brikke. <br/>&nbsp;
+                    </li>
+                    <li>
+                        Implementer følgende regler:
+                        <ul>
+                            <li>På første rad kan man bare legge til brikker som har slett topp</li>
+                            <li>På siste rad kan man bare legge til brikker som har slett bunn</li>
+                            <li>I første kolonne kan man bare legge til brikker som har slett venstrekant</li>
+                            <li>I siste kolonne kan man bare legge til brikker som har slett høyrekant</li>
+                        </ul>
+                    </li>
+
+                </ol>
+            `;
 
     </script>
 </body>
