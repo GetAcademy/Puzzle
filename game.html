@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="board"></div>
+    <hr />
+    <div id="buttons"></div>
+    </div>
+
+    <script>
+        addPuzzlePiece('board', true, true, true, true, '', 1, 0, 0);
+        addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);
+        addPuzzlePiece('board', true, false, true, true, '', 2, 0, 6);
+
+
+        addPuzzlePiece('buttons', true, true, true, true, 'addNormalPuzzlePieceToBoard()', 1);
+        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceWithoutTopToBoard()', 2);
+        addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceWithoutRightToBoard()', 1);
+        function addPuzzlePiece(toId, hasTop, hasRight, hasBottom, hasLeft, onclick, color, leftPosition, topPosition) {
+            let style = '';
+            if (leftPosition !== undefined) {
+                style = `left: ${leftPosition+0.5}em; top: ${topPosition+0.5}em`;
+            }
+
+            document.getElementById(toId).innerHTML += /*HTML*/`
+                <div class="jigsaw${color}" onclick="${onclick}" style="${style}">
+                    ${hasTop ? createSpan('t') : ''}
+                    ${hasRight ? createSpan('r') : ''}
+                    ${hasBottom ? createSpan('b') : ''}
+                    ${hasLeft ? createSpan('l') : ''}
+                </div>            
+            `;
+        }
+
+        function createSpan(cssClass) {
+            return `<span class="${cssClass}"></span>`;
+        }
+
+    </script>
+</body>
+
+</html>
