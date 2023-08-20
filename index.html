@@ -15,9 +15,10 @@
         <div id="buttons"></div>
     </div>
     <script>
-        addPuzzlePiece('board', true, true, true, true, '', 1, 0, 0);
-        addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);
-        addPuzzlePiece('board', true, false, true, true, '', 2, 0, 6);
+        addPuzzlePiece('board', false, false, true, true, '', 1, 24, 0);
+        addPuzzlePiece('board', false, true, true, true, '', 2, 18, 0);
+        addPuzzlePiece('board', false, true, true, true, '', 1, 12, 0);
+        addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
 
         addPuzzlePiece('buttons', true, true, true, true, 'addNormalPuzzlePieceToBoard()', 1);
         addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceWithoutTopToBoard()', 2);
@@ -60,18 +61,18 @@
                         Hvis man trykker på den første brikken nederst til venstre på siden, kalles funksjonen
                         <tt>addNormalPuzzlePieceToBoard()</tt>. (Ev. høyreklikk på denne brikken i nettleseren og velg inspiser. Da vil du 
                         se HTML-koden som ligger bak.)
-                        Lag funksjonen <tt>addNormalPuzzlePieceToBoard()</tt>, slik at brikken legges til på brettet - øverst til venstre. 
-                        Kommenter ut linjene under - de var bare ment for å vise eksempler på hvordan man kan legge til ulike brikker i ulike posisjoner på brettet. <br/>
-                        <tt>addPuzzlePiece('board', true, true, true, true, '', 1, 0, 0);</tt><br/>
-                        <tt>addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);</tt><br/>
-                        <tt>addPuzzlePiece('board', true, false, true, true, '', 2, 0, 6);</tt><br/>
+                        Lag funksjonen <tt>addNormalPuzzlePieceToBoard()</tt>, slik at brikken legges til på brettet. 
+                        Kommenter ut linjene som begynner med <tt>addPuzzlePiece('board'...</tt> - de var bare ment for å vise eksempler på hvordan man kan legge til ulike brikker i 
+                        ulike posisjoner på brettet. Men eksperimenter med dem for å forstå hvordan de ulike verdiene man kan sende inn som argument påvirker sluttresultatet<br/>
+                        For at skjøtene mellom brikkene skal virke, må vi tegne opp dette fra øverst til høyre, så mot venstre - og så starte på neste linje helt til høyre. 
                         &nbsp;<br/>
                     </li>
                     <li>
-                        Utvid funksjonen slik at første gang den kalles legges det til en brikke med 0 som argument for både <tt>leftPosition</tt> og <tt>topPosition</tt>.<br/>&nbsp;
+                        Utvid funksjonen slik at første gang den kalles legges det til en brikke med 24 som argument for både <tt>leftPosition</tt> og  0 for <tt>topPosition</tt>.<br/>&nbsp;
+                        Og at for hver gang den kalles så brukes det 6 mindre enn forrige gang for <tt>leftPosition</tt>. (Første gang 24, så 18, så 12, så 6 og så 0.)
                     </li>
                     <li>
-                        Utvid funksjonen slik at hvis man har kalt funksjonen fem ganger så bruker den 0 for <tt>leftPosition</tt> og bruker 6 mer enn forrige gang for <tt>topPosition</tt>.
+                        Utvid funksjonen slik at hvis man har kalt funksjonen fem ganger så bruker den igjen 24 for <tt>leftPosition</tt> og bruker 6 mer enn forrige gang for <tt>topPosition</tt>.
                         <br/>&nbsp;
                     </li>
                     <li>
