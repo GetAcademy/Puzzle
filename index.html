@@ -17,6 +17,10 @@
     <div id="buttons"></div>
     </div>
     <script>
+        addPuzzlePiece('board', true, true, true, true, '', 1, 0, 0);
+        addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);
+        addPuzzlePiece('board', true, false, true, true, '', 2, 0, 6);
+
         addPuzzlePiece('buttons', true, true, true, true, 'addNormalPuzzlePieceToBoard()', 1);
         addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceWithoutTopToBoard()', 2);
         addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceWithoutRightToBoard()', 1);
