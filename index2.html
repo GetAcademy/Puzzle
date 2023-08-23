@@ -26,10 +26,10 @@
         let color = 0; // eller 1
 
         addPuzzlePiece('buttons', true, true, true, true, 'addNormalPuzzlePieceToBoard()', 1);
-        // addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceWithoutTopToBoard()', 2);
-        // addPuzzlePiece('buttons', true, true, true, false, 'addPuzzlePieceWithoutLeftToBoard()', 2);
-        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceWithoutRightAndTopToBoard()', 1);
-        // addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceWithoutLeftAndTopToBoard()', 1);
+        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceWithoutTopToBoard()', 2);
+        addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceWithoutRightToBoard()', 1);
+        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceWithoutRightAndTopToBoard()', 2);
+        addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceWithoutLeftAndTopToBoard()', 1);
 
         function addNormalPuzzlePieceToBoard() {
             addPieceToBoard(true, true, true, true, '');
@@ -39,24 +39,26 @@
             addPieceToBoard(false, false, true, true, '');
         }
 
-        // function addPuzzlePieceWithoutTopToBoard() {
-        //     addPieceToBoard('board', false, true, true, true, '');
-        // }
+        function addPuzzlePieceWithoutTopToBoard() {
+            addPieceToBoard(false, true, true, true, '');
+        }
 
-        // function addPuzzlePieceWithoutLeftToBoard() {
-        //     addPieceToBoard('board', true, true, true, false, '');
-        // }
+        function addPuzzlePieceWithoutRightToBoard() {
+            addPieceToBoard(true, false, true, true, '');
+        }
 
 
-        // function addPuzzlePieceWithoutLeftAndTopToBoard() {
-        //     addPieceToBoard('board', false, true, true, false, '');
-        // }
+        function addPuzzlePieceWithoutLeftAndTopToBoard() {
+            addPieceToBoard(false, true, true, false, '');
+        }
 
         function addPieceToBoard(hasTop, hasRight, hasBottom, hasLeft) {
             if (currentTop == 0 && (hasTop || !hasBottom)) return;
             if (currentTop == 24 && (hasBottom || !hasTop)) return;
             if (currentLeft == 0 && (hasLeft || !hasRight)) return;
             if (currentLeft == 24 && (hasRight || !hasLeft)) return;
+            if (currentTop > 0 && currentTop < 24 && (!hasTop || !hasBottom)) return
+            if (currentLeft > 0 && currentLeft < 24 && (!hasLeft || !hasRight)) return
             addPuzzlePiece('board', hasTop, hasRight, hasBottom, hasLeft, '', currentColor + 1, currentLeft, currentTop);
             currentColor = 1 - currentColor;
             // currentColor = currentColor == 1 ? 2 : 1;
