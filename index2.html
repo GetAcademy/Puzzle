@@ -16,7 +16,7 @@
         <div id="buttons" style="background-color: lightblue;grid-area: buttons;"></div>
     </div>
     <script>
-        let currentLeft = 24;        
+        let currentLeft = 24;
         let currentTop = 0;
         let currentColor = 0;
 
@@ -32,11 +32,11 @@
         // addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceWithoutLeftAndTopToBoard()', 1);
 
         function addNormalPuzzlePieceToBoard() {
-            addPieceToBoard('board', true, true, true, true, '');
+            addPieceToBoard(true, true, true, true, '');
         }
 
         function addPuzzlePieceWithoutRightAndTopToBoard() {
-            addPieceToBoard('board', false, false, true, true, '');
+            addPieceToBoard(false, false, true, true, '');
         }
 
         // function addPuzzlePieceWithoutTopToBoard() {
@@ -53,6 +53,10 @@
         // }
 
         function addPieceToBoard(hasTop, hasRight, hasBottom, hasLeft) {
+            if (currentTop == 0 && (hasTop || !hasBottom)) return;
+            if (currentTop == 24 && (hasBottom || !hasTop)) return;
+            if (currentLeft == 0 && (hasLeft || !hasRight)) return;
+            if (currentLeft == 24 && (hasRight || !hasLeft)) return;
             addPuzzlePiece('board', hasTop, hasRight, hasBottom, hasLeft, '', currentColor + 1, currentLeft, currentTop);
             currentColor = 1 - currentColor;
             // currentColor = currentColor == 1 ? 2 : 1;
@@ -62,10 +66,6 @@
                 currentLeft = 24;
                 currentTop += 6;
             }
-            if (currentTop == 0 && hasTop) return;
-            if (currentTop == 24 && hasBottom) return;
-            if (currentLeft == 0 && hasLeft) return;
-            if (currentLeft == 24 && hasRight) return;
         }
 
         function addPuzzlePiece(toId, hasTop, hasRight, hasBottom, hasLeft, onclick, color, leftPosition, topPosition) {
